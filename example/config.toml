@@ -1,0 +1,7 @@
+[app]
+    [app.logger]
+        [app.logger.service]
+            path="service-name.json"
+            level="Info"
+        [app.logger.mobile]
+            level="Info"
