@@ -15,31 +15,31 @@ type Option func(*Options)
 
 // Options wraps logger options.
 type Options struct {
-	// common options.
+	// common options
 	name  string
 	level int
 	fs    []zapcore.Field
 
-	// zapwriter options.
+	// zap-writer options
 	path string
 
-	// consolewriter options.
+	// console-writer options
 	color  bool
 	prefix string
 	async  bool
 
-	// added writers.
+	// added writers
 	writers []Options
 }
 
-// WithName adds name to the Logger.
+// WithName adds name to the logger.
 func WithName(name string) Option {
 	return func(o *Options) {
 		o.name = name
 	}
 }
 
-// WithFields adds fields to the Logger.
+// WithFields adds fields to the logger.
 func WithFields(fs ...zapcore.Field) Option {
 	return func(o *Options) {
 		o.fs = fs
@@ -102,23 +102,14 @@ func buildOptions(kv map[string]interface{}) (option Options) {
 	return
 }
 
-// WithLevelMask configures logger enabled levels with level masks.
+// WithLevelMask configures logger's enabled levels with level masks.
 func WithLevelMask(lvMask int) Option {
 	return func(o *Options) {
 		o.level = lvMask
 	}
 }
 
-// WithLevelString configures the Logger enabled levels with combined level string.
-// ex. "Warn | Error | Panic | Fatal" will enable Warn, Error, Panic and Fatal level logging.
-// Deprecated: use WithLevelCombo instead.
-func WithLevelString(combinedLv string) Option {
-	return func(o *Options) {
-		o.level = parseLevel(combinedLv, "|")
-	}
-}
-
-// WithLevelCombo configures the Logger enabled levels with level combos.
+// WithLevelCombo configures logger's enabled levels with level-combo string.
 // ex. "Warn | Error | Panic | Fatal" will enable Warn, Error, Panic and Fatal level logging.
 func WithLevelCombo(combo string) Option {
 	return func(o *Options) {
@@ -126,7 +117,7 @@ func WithLevelCombo(combo string) Option {
 	}
 }
 
-// WithOutput adds log a new writer with options.
+// WithOutput adds a new writer with options.
 func WithOutput(opts ...Option) Option {
 	var options Options
 	for _, opt := range opts {
@@ -137,7 +128,7 @@ func WithOutput(opts ...Option) Option {
 	}
 }
 
-// WithOutputKV adds logger a new writer with KV.
+// WithOutputKV adds a new writer with provided KV.
 func WithOutputKV(kv map[string]interface{}) Option {
 	var option = buildOptions(kv)
 	return func(o *Options) {
@@ -145,7 +136,7 @@ func WithOutputKV(kv map[string]interface{}) Option {
 	}
 }
 
-// WithOutputKVs adds logger a new writer with KVs.
+// WithOutputKVs adds several new writers with provided KVs.
 func WithOutputKVs(kvs []interface{}) Option {
 	var options = make([]Options, 0)
 	for _, kv := range kvs {
@@ -162,21 +153,21 @@ func WithOutputKVs(kvs []interface{}) Option {
 	}
 }
 
-// WithColorful configures the console-log's colorful trigger.
+// WithColorful configures the console-logger's colorful trigger.
 func WithColorful(colorful bool) Option {
 	return func(o *Options) {
 		o.color = colorful
 	}
 }
 
-// WithPrefix configures the console-log's prefix.
+// WithPrefix configures the console-logger's prefix.
 func WithPrefix(prefix string) Option {
 	return func(o *Options) {
 		o.prefix = prefix
 	}
 }
 
-// WithAsync configures the console-log's async trigger.
+// WithAsync configures the console-logger's async trigger.
 func WithAsync(async bool) Option {
 	return func(o *Options) {
 		o.async = async

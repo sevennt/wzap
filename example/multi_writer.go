@@ -55,7 +55,7 @@ func multiWriterLogger() {
 			wzap.WithPath("./multiWriterLogger1.log"),
 		),
 		wzap.WithOutput(
-			wzap.WithLevelString("Warn | Error | Panic | Fatal"),
+			wzap.WithLevelCombo("Warn | Error | Panic | Fatal"),
 			wzap.WithPath("./multiWriterLogger2.log"),
 		),
 		wzap.WithOutput(

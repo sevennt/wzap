@@ -55,7 +55,6 @@ func Default(name string) *Logger {
 }
 
 // SetDefaultLogger sets default logger with provided logger.
-// Deprecated: use welfare API instead.
 func SetDefaultLogger(l *Logger) {
 	mu.Lock()
 	logger = l
