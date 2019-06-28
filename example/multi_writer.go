@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/sevenNt/wzap"
+	"github.com/sevennt/wzap"
 )
 
 // defaultLogger 使用vega/log包默认logger输出日志。

@@ -7,13 +7,14 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/sevenNt/wzap"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"go.uber.org/zap"
+
+	"github.com/sevennt/wzap"
 )
 
-// go test github.com/sevenNt/wzap -v -run=TestFileWrite$
+// go test github.com/sevennt/wzap -v -run=TestFileWrite$
 func TestFileWrite(t *testing.T) {
 	temp, err := ioutil.TempFile("/tmp", "async")
 	require.NoError(t, err, "Failed to create temp file.")

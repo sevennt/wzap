@@ -8,7 +8,7 @@ A wrapper of [zap](https://github.com/uber-go/zap) supporting file rotating and 
 ```golang
 package main
 
-import "github.com/sevenNt/wzap"
+import "github.com/sevennt/wzap"
 
 var logger = wzap.New(
 	wzap.WithPath("/tmp/async.log"), // set log path.
@@ -29,7 +29,7 @@ func main() {
 ```golang
     package main
 
-    import "github.com/sevenNt/wzap"
+    import "github.com/sevennt/wzap"
 
     var logger = wzap.New(
         // add a file writer.

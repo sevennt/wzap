@@ -3,7 +3,7 @@
 package main
 
 import (
-	"github.com/sevenNt/wzap"
+	"github.com/sevennt/wzap"
 )
 
 // AsyncWriteFile 展示了如何使用structured风格写入日志（默认异步写入）。

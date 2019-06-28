@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/sevenNt/wzap"
+	"github.com/sevennt/wzap"
 	"github.com/spf13/viper"
 )
 

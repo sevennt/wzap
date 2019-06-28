@@ -5,7 +5,7 @@ package main
 import (
 	"time"
 
-	"github.com/sevenNt/wzap"
+	"github.com/sevennt/wzap"
 )
 
 func main() {
